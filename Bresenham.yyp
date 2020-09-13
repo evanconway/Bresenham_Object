@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"o_bresenham","path":"objects/o_bresenham/o_bresenham.yy",},"order":0,},
+    {"id":{"name":"o_round_test","path":"objects/o_round_test/o_round_test.yy",},"order":1,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
   "Options": [

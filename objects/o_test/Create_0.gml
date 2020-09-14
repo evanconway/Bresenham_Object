@@ -14,6 +14,3 @@ display_reset(0, true);
 game_set_speed(60, gamespeed_fps);
 
 event_inherited();
-
-x = 40;
-y = 40;

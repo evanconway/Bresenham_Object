@@ -122,7 +122,7 @@ function approach(a, v) {
 		collidables[@i] = argument[i + 2];
 	}
 	
-	while (abs(change_x) > 0 && abs(change_y) > 0) {
+	while (abs(change_x) > 0 || abs(change_y) > 0) {
 		var pot_x = x + sign(change_x);
 		var pot_y = y + sign(change_y);
 		change_x -= sign(change_x);
@@ -137,7 +137,7 @@ function approach(a, v) {
 		}
 		x = pot_x;
 		for (var i = 0; i < array_length(collidables); i++) {
-			if (place_meeting(x, pot_y, o_bresenham)) {
+			if (place_meeting(x, pot_y, collidables[@i])) {
 				pot_y = y;
 				change_y = 0;
 				i = array_length(collidables);
@@ -146,6 +146,9 @@ function approach(a, v) {
 		y = pot_y;
 	}
 	
-	var diff_x = x - og_x;
-	var diff_y = y - og_y;
+	// Adjust start position to account for unmet changes.
+	var diff_x = changes.change_x - (x - og_x);
+	var diff_y = changes.change_y - (y - og_y);
+	start_x += diff_x;
+	start_y += diff_y;
 }

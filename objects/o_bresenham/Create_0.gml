@@ -105,3 +105,47 @@ function update_bresenham_line() {
 	_y -= y;
 	return { change_x: _x, change_y: _y };
 }
+
+/// @desc Move object towards collidables, stopping if there would be a collision. 
+/// @func approach(angle, velocity, *collidables)
+function approach(a, v) {
+	angle = a;
+	velocity = v;
+	var changes = update_bresenham_line();
+	var change_x = changes.change_x;
+	var change_y = changes.change_y;
+	var og_x = x;
+	var og_y = y;
+	
+	var collidables = array_create(argument_count - 2);
+	for (var i = 0; i < array_length(collidables); i++) {
+		collidables[@i] = argument[i + 2];
+	}
+	
+	while (abs(change_x) > 0 && abs(change_y) > 0) {
+		var pot_x = x + sign(change_x);
+		var pot_y = y + sign(change_y);
+		change_x -= sign(change_x);
+		change_y -= sign(change_y);
+
+		for (var i = 0; i < array_length(collidables); i++) {
+			if (place_meeting(pot_x, y, collidables[@i])) {
+				pot_x = x;
+				change_x = 0;
+				i = array_length(collidables);
+			}
+		}
+		x = pot_x;
+		for (var i = 0; i < array_length(collidables); i++) {
+			if (place_meeting(x, pot_y, o_bresenham)) {
+				pot_y = y;
+				change_y = 0;
+				i = array_length(collidables);
+			}
+		}
+		y = pot_y;
+	}
+	
+	var diff_x = x - og_x;
+	var diff_y = y - og_y;
+}

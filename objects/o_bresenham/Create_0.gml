@@ -6,8 +6,6 @@ angle = 0; // in degrees
 angle_prev = 0; // the value of angle in the previous update
 velocity = 0;
 
-
-
 function update_bresenham_line() {
 	
 	// Reset distance travelled on path if the angle has changed.
@@ -76,7 +74,7 @@ function update_bresenham_line() {
 		_velocity = abs(sin(_angle_rad)) * velocity;
 		
 		/* We encountered a frustrating bug where the sine function returns a number just short of 1 when the angle 
-		is 90 or 270 degrees. So we round it just a bit to ensure a proper "1" just for those edge cases. */
+		is 90 or 270 degrees. So we round it a bit to ensure "1" for those edge cases. */
 		_velocity *= 1000;
 		_velocity = floor(_velocity + 0.5);
 		_velocity /= 1000;
@@ -107,8 +105,8 @@ function update_bresenham_line() {
 }
 
 /// @desc Move object towards collidables, stopping if there would be a collision. 
-/// @func approach(angle, velocity, *collidables)
-function approach(a, v) {
+/// @func move(angle, velocity, *collidables...)
+function move(a, v) {
 	angle = a;
 	velocity = v;
 	var changes = update_bresenham_line();

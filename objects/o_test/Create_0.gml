@@ -11,6 +11,10 @@ window_set_size(res * window_m, res * window_m);
 display_set_gui_size(res, res);
 display_reset(0, true);
 
-game_set_speed(60, gamespeed_fps);
+//game_set_speed(4, gamespeed_fps);
 
 event_inherited();
+
+gui_angle = 0;
+
+game_steps = 0;

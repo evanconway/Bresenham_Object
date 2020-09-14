@@ -149,6 +149,6 @@ function approach(a, v) {
 	// Adjust start position to account for unmet changes.
 	var diff_x = changes.change_x - (x - og_x);
 	var diff_y = changes.change_y - (y - og_y);
-	start_x += diff_x;
-	start_y += diff_y;
+	start_x -= diff_x;
+	start_y -= diff_y;
 }

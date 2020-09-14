@@ -1,7 +1,11 @@
 {
   "resources": [
     {"id":{"name":"o_bresenham","path":"objects/o_bresenham/o_bresenham.yy",},"order":0,},
+    {"id":{"name":"f_test","path":"fonts/f_test/f_test.yy",},"order":0,},
     {"id":{"name":"o_round_test","path":"objects/o_round_test/o_round_test.yy",},"order":1,},
+    {"id":{"name":"o_test","path":"objects/o_test/o_test.yy",},"order":2,},
+    {"id":{"name":"Sprite1","path":"sprites/Sprite1/Sprite1.yy",},"order":0,},
+    {"id":{"name":"bresenham_functions","path":"scripts/bresenham_functions/bresenham_functions.yy",},"order":0,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
   "Options": [

@@ -1,11 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-//game_steps++;
-//if (game_steps > 60) {
-//	game_set_speed(4, gamespeed_fps);
-//}
-
 if (keyboard_check_pressed(ord("D"))) {
 	show_debug_message("Catch");
 }
